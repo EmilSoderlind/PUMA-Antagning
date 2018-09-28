@@ -1,27 +1,36 @@
-import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import React, {Component} from 'react';
+import { ScrollView, StyleSheet, View, ImageBackground } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
+import SearchComponent from '../components/SearchComponent.js';
+import TopMenuSearch from '../components/TopMenuSearch.js';
 
 export default class SearchScreen extends React.Component {
-  static navigationOptions = {
+  /*static navigationOptions = {
     title: 'Links',
-  };
+  };*/
 
   render() {
     return (
-      <ScrollView style={styles.container}>
-        {/* Go ahead and delete ExpoLinksView and replace it with your
-           * content, we just wanted to provide you with some helpful links */}
-        <ExpoLinksView />
-      </ScrollView>
+      <View style={styles.page}>
+        <ImageBackground style = {styles.background} source={{uri: 'https://www.studeravidare.se/uploads/umu-main.jpg'}} 
+        imageStyle={{resizeMode: 'cover'}} blurRadius={2}>
+          <SearchComponent/>
+        </ImageBackground>
+      </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
-  },
-});
+const styles = StyleSheet.create(
+  {
+      page:{
+          flexDirection: 'column',
+          height: '100%',
+      },
+
+      background: {
+        height: '100%',
+        flexDirection: "column",
+      },
+  }
+);
